@@ -12,6 +12,7 @@ class CarLoaded extends HomeState {
 
   CarLoaded(this.cars);
 }
+class PostCardSuccess extends HomeState {}
 
 class CarError extends HomeState {
   final String message;

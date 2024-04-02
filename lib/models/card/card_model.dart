@@ -1,65 +1,78 @@
 class CarModel {
   final int id;
-  final int timestampRegistration;
-  final int modelId;
-  final int year;
-  final String fuel;
-  final int numDoors;
-  final String color;
-  final String nameModel;
-  final double value;
-  final String? image;
+  final int timestamp_cadastro;
+  final int modelo_id;
+  final int ano;
+  final String combustivel;
+  final int num_portas;
+  final String cor;
+  final String nome_modelo;
+  final double valor;
 
   CarModel({
     required this.id,
-    required this.timestampRegistration,
-    required this.modelId,
-    required this.year,
-    required this.fuel,
-    required this.numDoors,
-    required this.color,
-    required this.nameModel,
-    required this.value,
-    this.image,
+    required this.timestamp_cadastro,
+    required this.modelo_id,
+    required this.ano,
+    required this.combustivel,
+    required this.num_portas,
+    required this.cor,
+    required this.nome_modelo,
+    required this.valor,
   });
 
   factory CarModel.fromJson(Map<String, dynamic> json) {
     return CarModel(
       id: json['id'],
-      timestampRegistration: json['timestamp_cadastro'],
-      modelId: json['modelo_id'],
-      year: json['ano'],
-      fuel: json['combustivel'],
-      numDoors: json['num_portas'],
-      color: json['cor'],
-      nameModel: json['nome_modelo'],
-      value: json['valor'].toDouble(),
+      timestamp_cadastro: json['timestamp_cadastro'],
+      modelo_id: json['modelo_id'],
+      ano: json['ano'],
+      combustivel: json['combustivel'],
+      num_portas: json['num_portas'],
+      cor: json['cor'],
+      nome_modelo: json['nome_modelo'],
+      valor: json['valor'].toDouble(),
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'timestamp_cadastro': timestamp_cadastro,
+      'modelo_id': modelo_id,
+      'ano': ano,
+      'combustivel': combustivel,
+      'num_portas': num_portas,
+      'cor': cor,
+      'nome_modelo': nome_modelo,
+      'valor': valor.toStringAsFixed(3).replaceAll('.', ','),
+    };
+  }
+
+
+
+
   CarModel copyWith({
     int? id,
-    int? timestampRegistration,
-    int? modelId,
-    int? year,
-    String? fuel,
-    int? numDoors,
-    String? color,
-    String? nameModel,
-    double? value,
-    String? image,
+    int? timestamp_cadastro,
+    int? modelo_id,
+    int? ano,
+    String? combustivel,
+    int? num_portas,
+    String? cor,
+    String? nome_modelo,
+    double? valor,
   }) {
     return CarModel(
       id: id ?? this.id,
-      timestampRegistration: timestampRegistration ?? this.timestampRegistration,
-      modelId: modelId ?? this.modelId,
-      year: year ?? this.year,
-      fuel: fuel ?? this.fuel,
-      numDoors: numDoors ?? this.numDoors,
-      color: color ?? this.color,
-      nameModel: nameModel ?? this.nameModel,
-      value: value ?? this.value,
-      image: image ?? this.image,
+      timestamp_cadastro: timestamp_cadastro ?? this.timestamp_cadastro,
+      modelo_id: modelo_id ?? this.modelo_id,
+      ano: ano ?? this.ano,
+      combustivel: combustivel ?? this.combustivel,
+      num_portas: num_portas ?? this.num_portas,
+      cor: cor ?? this.cor,
+      nome_modelo: nome_modelo ?? this.nome_modelo,
+      valor: valor ?? this.valor,
     );
   }
 }

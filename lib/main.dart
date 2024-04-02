@@ -1,3 +1,4 @@
+import 'package:car_app_test/widgets/pages/auth/auth_page.dart';
 import 'package:car_app_test/widgets/pages/home/bloc/home_bloc.dart';
 import 'package:car_app_test/widgets/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomePage(),
+        home: const AuthPage(),
       ),
     );
   }

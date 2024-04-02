@@ -4,6 +4,8 @@ import '../../models/card/card_model.dart';
 
 abstract class ICarRepository {
   Future<List<CarModel>> getVehicles();
+
+  Future<void> postLead(CarModel car);
 }
 
 class CarRepository implements ICarRepository {
@@ -14,5 +16,10 @@ class CarRepository implements ICarRepository {
   @override
   Future<List<CarModel>> getVehicles() async {
     return _cardDataSource.getVehicles();
+  }
+
+  @override
+  Future<void> postLead(CarModel car) async {
+    return _cardDataSource.postLead(car);
   }
 }

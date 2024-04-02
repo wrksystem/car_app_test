@@ -53,12 +53,12 @@ class _HomePageState extends State<HomePage> {
             body: ListView.builder(
               itemCount: cars.length,
               itemBuilder: (context, index) {
-                String imagePath = 'assets/images/${cars[index].nameModel}.png';
+                String imagePath = 'assets/images/${cars[index].nome_modelo}.png';
                 return Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: CardWidget(
-                    name: cars[index].nameModel.toString(),
-                    year: cars[index].year.toString(),
+                    name: cars[index].nome_modelo.toString(),
+                    year: cars[index].ano.toString(),
                     image: imagePath,
                     onTap: () {
                       Navigator.push(
@@ -66,9 +66,8 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                           builder: (context) =>
                               DetailsCarPage(
-                                car: cars[index].copyWith(
-                                  image: imagePath,
-                                ),
+                                car: cars[index],
+                                image: imagePath,
                               ),
                         ),
                       );
@@ -79,7 +78,7 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         } else {
-          return Container(); // Return an empty container for other states
+          return Container();
         }
       },
     );
