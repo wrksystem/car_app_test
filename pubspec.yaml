@@ -20,6 +20,8 @@ dependencies:
   http: ^1.2.1
   get_it: ^7.6.7
   floor: ^1.4.2
+  firebase_core: ^2.27.2
+  firebase_auth: ^4.18.0
 
 dev_dependencies:
   flutter_test:
